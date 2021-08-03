@@ -1,25 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import React from "react";
+
+import "./App.css"
+
+class App extends React.Component{
+     
+      state = {
+        tasks: ["make coffee", "make notes", "go for a jog", "new task"],
+        currInput: "",
+      }
+
+
+      render = () => {
+       
+        return(
+            <div>
+
+                  <input type="text" className="input-box"
+                      
+                      onChange = {
+                        
+                          (e) => {
+
+                              this.setState({
+                                currInput:e.currentTarget.value
+                              });  
+
+                          }
+
+                      }  
+
+                      onKeyDown = {
+                     
+                          (e) => {
+                          
+                              if(e.key === "Enter"){
+                                  
+                                  this.setState({
+                                      tasks:[...this.state.tasks,this.state.currInput], 
+                                      currInput: "",   
+                                  })
+
+                              }
+
+                          }
+                     } 
+                  
+                     value={this.state.currInput}
+
+                  />  
+
+                  <ul>
+
+                     {this.state.tasks.map((element) => { 
+                          return <li>{element}</li>;
+                     })}
+
+                  </ul> 
+
+
+            </div>
+
+        )
+
+
+        
+      }
+
 }
+
+
+
+
 
 export default App;
