@@ -13,7 +13,7 @@ import App from "./App";
 //.render only takes one componenet
 ReactDOM.render( 
 
-<App/> , // app ek component he jho hane design kiya
+<App/> , // app ek component he jho hamne design kiya
   
     document.getElementById('root')// aur ek jagah jha  <App/> component ko show karna hai us element ko select karliya html se
 
